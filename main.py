@@ -26,7 +26,7 @@ async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
-@app.post("/submit")
+@app.post("/")
 async def submit(request: Request, text: str = Form(...)):
 
     prompt = """Rewrite the following sentence twice - first to fix grammar issues and second to fully rewrite the sentence to be more clear and enthusiastic.

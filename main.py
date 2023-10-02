@@ -1,12 +1,14 @@
+import re
+import uvicorn
+
 from fastapi import FastAPI, Form, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 import google.generativeai as genai
-import re
-import uvicorn
 
 # Get your API key from https://makersuite.google.com/u/0/app/apikey and replace API_KEY with your key
 genai.configure(api_key="API_KEY")
+
 defaults = {
   'model': 'models/text-bison-001',
   'temperature': 0.7,
@@ -22,12 +24,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.get("/")
-async def index(request: Request):
+async def index(request: Request) -> templates.TemplateResponse:
     return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.post("/")
-async def submit(request: Request, text: str = Form(...)):
+async def submit(request: Request, text: str = Form(...)) -> templates.TemplateResponse:
 
     prompt = """Rewrite the following sentence twice - first to fix grammar issues and second to fully rewrite the sentence to be more clear and enthusiastic.
     Original: There going to love opening they're present

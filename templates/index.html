@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>FastAPI - Grammar rewriter</title>
+  <head>
+    <title>FastAPI - Grammar rewriter</title>
     <link href="/static/style.css" rel="stylesheet">
-</head>
-<body>
-<h1 class="h1">Grammar Rewriter</h1>
+  </head>
+  <body>
+    <h1 class="h1">Grammar Rewriter</h1>
 
-<form action="/" method="post">
-<textarea name="text" rows="10" cols="50" class="message-input" placeholder="Type sentence...">{{text}}</textarea>
-<input type="submit" class="message-submit" value="Send">
-</form>
-<textarea name="response_text" rows="10" cols="50" class="message-output">{{ response_text }}</textarea>
-
+  <form action="/" method="post">
+    <textarea name="text" rows="10" cols="50" class="message-input" placeholder="Type sentence...">{{text}}</textarea>
+    <input type="submit" class="message-submit" value="Send">
+  </form>
+      
+  <textarea name="response_text" rows="10" cols="50" class="message-output">{{ response_text }}</textarea>
 
 </body>
 </html>

@@ -1,13 +1,20 @@
 import re
 import uvicorn
-
+import os
+import sys
 from fastapi import FastAPI, Form, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 import google.generativeai as genai
 
 # Get your API key from https://makersuite.google.com/u/0/app/apikey and replace API_KEY with your key
-genai.configure(api_key="API_KEY")
+API_KEY = os.environ.get("API_KEY", "")
+
+if API_KEY == "":
+    printf("Please get the api key from https://makersuite.google.com/u/0/app/apikey and set in env")
+    sys.exit(1)
+
+genai.configure(api_key=API_KEY)
 
 defaults = {
   'model': 'models/text-bison-001',

@@ -15,7 +15,7 @@ from fastapi.staticfiles import StaticFiles
 
 # Get your API key from https://makersuite.google.com/u/0/app/apikey and replace API_KEY with your key
 
-API_KEY = os.environ.get("API_KEY", "AIzaSyAyknKvyIlJ2KzeFvbhtjlV22DMwnxHv_A")
+API_KEY = os.environ.get("API_KEY", "")
 
 if API_KEY == "":
     print("Please get the api key from https://makersuite.google.com/u/0/app/apikey and set in env")
